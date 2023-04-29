@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../views/home/view_model/home_viewmodel.dart';
-import 'mytext.dart';
+import '../router/app_router.dart';
+import '../views/products/product_list_view_model.dart';
+import '../constants/typography.dart';
 
 class ShowItem extends ConsumerWidget {
   final Widget widget;
-  const ShowItem({
+  const ShowItem({super.key, 
     required this.widget,
   });
 
@@ -15,15 +16,20 @@ class ShowItem extends ConsumerWidget {
     final totalItem = ref.watch(productProvider).cartLists.length;
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => widget));
+        goTo(context,cart);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
-          children: [Icon(Icons.store,color: Colors.white,), Text(totalItem.toString(),
-                          style: MyText.subhead(context)!.copyWith(color: Colors.white), overflow: TextOverflow.ellipsis
-                      )],
+          children: [
+            const Icon(
+              Icons.shopping_cart_outlined,
+              color: Colors.white,
+            ),
+            Text(totalItem.toString(),
+                style: Typo.subhead(context)!.copyWith(color: Colors.white),
+                overflow: TextOverflow.ellipsis)
+          ],
         ),
       ),
     );

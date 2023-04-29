@@ -7,8 +7,8 @@ import 'package:fluttertoast/fluttertoast.dart';
         toastLength: Toast.LENGTH_SHORT, //duration for message to show
         gravity: ToastGravity.BOTTOM, 
         timeInSecForIosWeb: 1, //for iOS only
-        backgroundColor: Colors.black.withOpacity(.5), 
-        textColor: Colors.white, //message text color
+        backgroundColor: Colors.white.withOpacity(.5), 
+        textColor: Colors.black, //message text color
         fontSize: 16.0 //message font size
     );
   }
